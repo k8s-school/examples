@@ -10,10 +10,10 @@ spec:
   template:
     metadata:
       annotations:
-        kubernetes.io/change-cause: "Update to blue kuard"
+        kubernetes.io/change-cause: "Update to purple kuard"
       labels:
         run: kuard
     spec:
       containers:
       - name: kuard
-        image: gcr.io/kuar-demo/kuard-amd64:blue
+        image: gcr.io/kuar-demo/kuard-amd64:purple
