@@ -1,6 +1,8 @@
 apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
+  labels:
+    app: kuard
   name: kuard
 spec:
   replicas: 10

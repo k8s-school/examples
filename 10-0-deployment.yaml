@@ -6,14 +6,19 @@ spec:
   selector:
     matchLabels:
       run: kuard
-  replicas: 200 
+  replicas: 200
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
   template:
     metadata:
       annotations:
-        kubernetes.io/change-cause: "Update to purple kuard"
+        kubernetes.io/change-cause: "Update to blue kuard"
       labels:
         run: kuard
     spec:
       containers:
       - name: kuard
-        image: gcr.io/kuar-demo/kuard-amd64:purple
+        image: gcr.io/kuar-demo/kuard-amd64:blue
