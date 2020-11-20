@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: parse-server
-        image: ${DOCKER_USER}/parse-server
+        image: fjammes/parse-server
         env:
         - name: PARSE_SERVER_DATABASE_URI
           value: "mongodb://mongo-0.mongo:27017,\
