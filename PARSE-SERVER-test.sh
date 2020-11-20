@@ -10,7 +10,8 @@ set -x
 IP=$(kubectl get svc parse-server -o go-template='{{.spec.clusterIP}}')
 
 # Warn: launch after having  run 'kubectl port-forward ...'
-curl -X POST \
+kubectl run -i --rm --tty shell --image=busybox -- \
+    curl -X POST \
     -H "X-Parse-Application-Id: my-app-id" \
     -H "Content-Type: application/json" \
     -d '{"score":123,"playerName":"Sean Plott","cheatMode":false}' \
