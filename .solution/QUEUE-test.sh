@@ -14,4 +14,4 @@ done
 
 curl localhost:$PORT/memq/server/stats
 
-kubectl apply -f 10-7-job-consumers.yaml
+kubectl apply -f 12-7-job-consumers.yaml
