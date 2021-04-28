@@ -13,3 +13,5 @@ do
   kubectl wait --for=condition=ready pod --timeout=60s -l statefulset.kubernetes.io/pod-name=mongo-$i
 done
 
+kubectl get pods -l app=mongo
+sleep 5
