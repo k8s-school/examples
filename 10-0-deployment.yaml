@@ -6,7 +6,7 @@ spec:
   selector:
     matchLabels:
       run: kuard
-  replicas: 200
+  replicas: 20
   strategy:
     rollingUpdate:
       maxSurge: 25%
