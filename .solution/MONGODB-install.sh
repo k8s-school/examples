@@ -1,10 +1,12 @@
-#/bin/bash
+#!/bin/bash
 
 set -euxo pipefail
 
-kubectl apply -f 15-12-mongo-configmap.yaml
-kubectl apply -f 15-11-mongo-service.yaml 
-kubectl apply -f 15-14-mongo-pvc.yaml 
+DIR=$(cd "$(dirname "$0")"; pwd -P)
+
+kubectl apply -f $DIR/15-12-mongo-configmap.yaml
+kubectl apply -f $DIR/15-11-mongo-service.yaml 
+kubectl apply -f $DIR/15-14-mongo-pvc.yaml 
 
 NB_REPLICA=3
 
