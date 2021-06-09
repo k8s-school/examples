@@ -14,6 +14,10 @@ kubectl patch statefulset "$SF" --type='json' -p='[
     {"op": "replace", "path": "/spec/template/spec/containers/0/image", "value":"mongo:4.4"},
     {"op": "replace", "path": "/spec/template/spec/containers/1/image", "value":"mongo:4.4"}]'
 
-kubectl run -i --rm --tty shell --image=mongo:4.2 --restart=Never -- mongo --host mongo:27017 test --eval "db.restaurants.find()"
 
 kubectl rollout status --watch --timeout=600s statefulset/"$SF"
+
+# WARN: only the mongdb PRIMARY is readable
+# kubectl run -i --rm --tty shell --image=mongo:4.2 --restart=Never -- mongo --host mongo:27017 test --eval "db.restaurants.find()"
+# kubectl run -i --rm --tty shell --image=mongo:4.2 --restart=Never -- mongo --host mongo-0.mongo:27017 test --eval "printjson(rs.status())"
+# kubectl run -i --rm --tty shell --image=mongo:4.2 --restart=Never -- mongo --host mongo-0.mongo:27017 test --eval "printjson(rs.add('mongo-1.mongo'))"
